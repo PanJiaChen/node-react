@@ -2,23 +2,29 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Tabletest from '../components/table.jsx';
 import configureStore from '../store/configureStore';
 import * as actionCreators from '../actions/common';
 
 class Plugins extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.dispatch(actionCreators.fetchContent('plugins'));
   }
 
-  render () {
+  render() {
     let { content } = this.props;
 
     return (
-      <div className="markdown-body" dangerouslySetInnerHTML={{__html: content}} />
+      <div>
+        <div className="markdown-body" dangerouslySetInnerHTML={{__html: content}}/>
+        <Tabletest />
+      </div>
+
+
     )
   }
 }
